@@ -1,0 +1,34 @@
+#include<iostream>
+using namespace std;
+
+int main() {
+	cout << "---------------------------------------" << endl;
+	cout << "| decimal   |  octal  |  Hexadecimal  |" << endl;
+	cout << "---------------------------------------" << endl;
+
+	int i = 0;
+	for (int a = 0; a < 8; a++) {
+		cout << "|      " << dec << i;
+		cout << "    |    " << oct << i;
+		cout << "    |       " << hex << i;
+		cout << "       |" << endl;
+		i++;
+	}
+
+	cout << "|      8    |   10    |       8       |" << endl;
+	cout << "|      9    |   11    |       9       |" << endl;
+
+	int j = 10;
+	for (int b = 10; b < 16; b++) {
+		cout << "|     " << dec << j;
+		cout << "    |   " << oct << j;
+		cout << "    |       " << uppercase << hex << j;
+		cout << "       |" << endl;
+		j++;
+	}
+
+	cout << "---------------------------------------" ;
+
+	return 0;
+
+}

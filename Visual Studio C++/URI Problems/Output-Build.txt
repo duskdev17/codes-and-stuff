@@ -1,0 +1,4 @@
+﻿1>------ Build started: Project: URI Problems, Configuration: Debug Win32 ------
+1>A task was canceled.
+1>A task was canceled.
+========== Build: 0 succeeded, 1 failed, 0 up-to-date, 0 skipped ==========

@@ -1,0 +1,117 @@
+#include<iostream>
+#include<string>
+#include <vector>
+#include <conio.h>
+void Display();//Invoke display to display switch() interface
+void Register();//Register
+void Enter();//Login
+using namespace std;
+class user {
+private:
+	string ID;
+	string Name;
+	string Email;
+	string Password;
+public:
+	user() {};
+	void Register();
+	void Enter();
+};
+vector<user> people;
+
+void user::Register()//Register
+{
+	string pw1;
+	string pw2;
+	user person;
+	cout << " Please set your ID:";
+flag:
+	cin >> person.ID;
+	for (int i = 0; i < people.size(); i++) {
+		if (people.at(i).ID == person.ID) {
+			cout << "This ID already exists, please reset:";
+			goto flag;
+		}
+	}
+	cout << " Please set your username:";
+	cin >> person.Name;
+	cout << " Please bind your email:";
+	cin >> person.Email;
+	cout << " Please set your password:";
+flag0:
+	cin >> pw1;
+	cout << " Please confirm your password again:";
+	cin >> pw2;
+	if (pw1 != pw2)
+	{
+		cout << " has two inconsistent input passwords before and after, please reset the password: ";
+		goto flag0;
+	}
+	cout << " registered successfully!" << endl;
+	person.Password = pw1;
+	people.push_back(person);
+	Display();
+}
+void user::Enter()//login
+{
+
+	cout << " Please enter your ID:";
+flag1:
+	string id;
+	string pwd;
+	cin >> id;
+	for (int i = 0; i < people.size(); i++) {//Verify that the ID exists
+		int tk = 1; tk++;
+		if (people.at(i).ID == id) {
+			tk = 2;
+			cout << " Please enter your password:";
+		flag2:
+			cin >> pwd;
+			if (people.at(i).Password != pwd) {
+				cout << " password is incorrect, please re-enter:";
+				goto flag2;
+			}
+			cout << " login succeeded!" << endl;
+			cout << " (1)Information view information\n (2)Exit exit \n\nChoice:";
+			int choice; // select interface
+				cin >> choice; 
+				switch (choice){
+				case 1://View information
+				cout << " Your ID is: " << people.at(i).ID << endl;
+				cout << " Your password is: " << people.at(i).Password << endl;
+				cout << " your username is: " << people.at(i).Name << endl;
+				cout << " Your mailbox is: " << people.at(i).Email << endl;
+				Display();
+				case 2://exit
+				exit(EXIT_FAILURE);
+			}
+		}
+	}
+	cout << "This ID does not exist, please re-enter:";
+	goto flag1;
+
+};
+
+void Display()//interface
+{
+	cout << " (1) Register registration \n (2) Enter login \n (3) Exit exit \n\nChoice:";
+	int choice; // select interface
+		user u;
+	cin >> choice; switch (choice)
+	{
+		case 1://Registration
+		u.Register();//call function
+		break;
+		case 2:// login
+		u.Enter();//call function
+		break;
+		case 3:// exit
+		exit(EXIT_FAILURE);
+	}
+};
+int main()
+{
+	Display(); // display interface 1 registration; 2 login; 3 exit
+		cin.get();
+	return 0;
+}

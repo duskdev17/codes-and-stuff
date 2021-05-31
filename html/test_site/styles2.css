@@ -1,0 +1,29 @@
+.pagebody{
+	font-size:30px;
+	background-color: #2d545e;
+}
+
+.h1style{
+	 color: white;
+	 background-color: #12343b;
+	 text-shadow: 3px 3px 5px black;
+	 text-align: center;
+	 padding: 50px 20px 50px 20px;
+}
+
+.paragraph{
+	color: white;
+	background-color: tan ; 
+	position: relative; top: 30px;
+	padding: 20px;
+	font-family: "Comic Sans MS", cursive, sans-serif ;
+	font-size: 0.9em"
+}
+
+.pageimage{
+	background-image: url(images/texture.jpg) ;
+}
+
+.flex-cotainer{
+	display: flex;
+}

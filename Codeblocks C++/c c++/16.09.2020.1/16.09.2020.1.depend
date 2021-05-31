@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1600244385 source:y:\codes and stuff\16.09.2020.1\main.cpp
+	<iostream>
+	<fstream>
+
+1600247496 source:y:\codes and stuff\c c++\16.09.2020.1\main.cpp
+	<iostream>
+

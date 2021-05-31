@@ -1,0 +1,45 @@
+.indexbodystyle{
+	 color: white;
+	 background-image: url(images/texture.jpg);
+	 text-shadow: 3px 3px 5px black;
+	 text-align: center;
+	 padding: 5px 20px 5px 20px;
+}
+
+.indexbodyh1{
+	color: #ffeb99;
+	background-color: #12343b;
+	font-size: 50px;
+	padding:  50px 20px 50px 20px;
+	text-shadow: 3px 3px 5px black;
+	font-family: 'Roboto Condensed', sans-serif ;
+}
+
+ .indexbodyul{
+	  color: white;
+	  background-color: black;
+	  padding: 10px 10px 10px 10px;
+	  text-align: center;
+ }
+
+ #indexbodymaindiv{
+	text-align: center; 
+	color: black;
+	background-color: #0b8f96;
+	padding: 15px 10px 15px 10px;
+	font-family: 'Roboto Condensed', sans-serif; 
+	font-size: 1.2em;
+	text-shadow: 1px 1px 2px grey;
+ }
+
+ #indexbodymaindivh6{
+	text-align: center;
+ }
+
+ #indexbodymaindivh1{
+	  text-align: center; 
+	  color: DodgerBlue; 
+	  background-color: black;
+	  padding: 20px;
+ }
+

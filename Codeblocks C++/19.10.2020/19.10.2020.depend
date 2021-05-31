@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1603081655 source:y:\codes and stuff\19.10.2020\main.cpp
+	<iostream>
+	<iomanip>
+
