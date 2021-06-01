@@ -1,0 +1,56 @@
+A Quick Discussion on next level 🙂
+There is no alternative of your basic knowledge that you have earned at the undergrad level. The basic quality of a fresher may include problem-solving ability, algorithm design concept, oop concept, database design, and development concept, analytical ability, etc. Competitive programming practicing profile (like; uva_online_judge> https://uva.onlinejudge.org/), StackOverflow profile (https://stackoverflow.com/) and project or basic source code showcasing/controlling repository profile (like; GitHub) may add a great advantage to your profile.
+However, many of us weren’t concern about the above qualities that I have mentioned. You have enough time yet to overcome. Now, you can follow my bellow instruction to face interviews.
+# Basic Problem Solving/C programming:
+===============================
+- Different tricky problems you have done in C like string reverse without library function, finding palindrome, substring finding, finding remainder, beginner level (1st 150) acm problems.
+- A better control over array, loop, structure, file and string implementation
+# Data Structure and Algorithm:
+========================
+- Implementation of stack/queue
+- Sorting (quick, counting etc) and Searching (bfs, dfs, prims etc)algorithms implementation
+- Link list: Suppose you are given a link list where you have to delete an element from middle. Now write an algo/psudo code to manage this
+- Other implementations
+# OOP Concept and Implementation:
+============================
+- Concept and implementation of OOP principles (Encapsulation, Inheritance, Polymorphism). You may asked to solve a problem by using these principles where you need to use common sense of using different principles.
+Example: you are given length and width property in a Rectangle class. You have to inherit this class in other classes like CircleClass, CubeClass etc using any oop language.
+*Accordingly practice all principles implementations.
+- Virtual function, Pure virtual function, Abstract class, Interface, Collections etc.
+# Database Development and Design:
+=============================
+- Normalization, Specialization, Generalization, ERD Concepts
+- Learn basic SQL especially the use of different joining
+Example: you will be given many tables from where you need to find 3rd maximum salary holder in an office.
+- OLTP, OLAP, Business Intelligence, Data warehouse, Data Mining Concept
+- Normal 2D schema, Star Schema
+- Knowledge of No-SQL Database like MongoDB
+# More about OOP and Modular Approach:
+================================
+- Learn different design patterns (singleton, decorator etc)
+- Specially learn the using scenario of different design patterns to solve a problem
+- Knowledge and implementation of SOLID principles
+- Different UML Diagrams
+# Web Technologies:
+================
+- HTML, CSS, JS, Ajax, BootStrap, AngularJS etc.
+# Analytical Ability/aptitude test and Numerical Reasoning:
+===========================================
+- This actually depends on your ability. You can’t predict know which type of problems you may need to face. But, for an understanding, you can google.
+- You can follow these attachment just for concpet
+=> Aptitute Test: https://drive.google.com/open...
+=> Numerical Reasoning: https://drive.google.com/open...
+=> Some Sample Questions of Samsung R&D: https://drive.google.com/open...
+=> Number Series: http://www.indiabix.com/logical-reasoning/number-series/...
+# Others:
+=======
+- Cloud computing, Big Data Concept
+- Software Testing concept (Black box, white box)
+- SDLC
+- Different Software Development Models (waterfall, agile-scrum, rad etc) and their appliance choice
+- Different Linux Command
+- Different Git command
+- Others
+NB: This is for facing interviews of post software engineer/software developer. There may some missing points to discuss, you can add your observation in the comment box.
+Generally, if a company expect a fresher to be strong (Development skill) on specific language/ platform like; PHP, JAVA, Dot Net then the company is not good or structured enough. Because they don't care about overall quality and just want to get profit from you from the beginning day. These types of company don't have enough strength and they just use you as a money making tool.
+But, if you have experience in a specific platform beside the basic qualities I have mentioned then it is great. But, try to avoid companies who want to make money using you from the very beginning. Hope you understand.
