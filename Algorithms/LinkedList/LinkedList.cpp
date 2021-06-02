@@ -49,6 +49,10 @@ int main() {
 
 	// Insert 6. So linked list becomes 6->NULL
 	append(&head, 6);
+	append(&head, 7);
+	append(&head, 8);
+	append(&head, 1);
+	append(&head, 3);
 
 	return 0;
 }
