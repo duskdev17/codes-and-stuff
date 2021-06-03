@@ -1,5 +1,6 @@
-//Single LinkList - Insert Middle (after a desired node)
+//Single Link List - Insertion - Insert Last (Cont.)
 #include<iostream>
+#include<string.h>
 using namespace std;
 
 struct node {
@@ -8,19 +9,19 @@ struct node {
 };
 struct node* head;
 
-void insertMiddle(int num) {
+void insertTail() {
 	//create a new node to be inserted 
 	struct node* newItem;
 	newItem = (struct node*)malloc(sizeof(struct node));
+
 	newItem->value = 10;
 	newItem->next = NULL;
 
-	// set prev to point to the desired node of the list 
+	// set prev to point to the last node of the list 
 	struct node* prev = head;
-	while (prev->value != num) {
+	while (prev->next != NULL)
 		prev = prev->next;
-	}
-	newItem->next = prev->next;
+	newItem->next = NULL;
 	prev->next = newItem;
 }
 
@@ -37,6 +38,6 @@ void printList()
 }
 
 int main() {
-	insertMiddle(10);
+	insertTail();
 	printList();
 }
