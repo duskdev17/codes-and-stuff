@@ -8,7 +8,7 @@ struct dnode {
 	struct dnode* next;
 }*head, * last;
 
-void insert_begnning(int data) {
+void insert_begning(int data) {
 	struct dnode* newItem, * temp;
 	newItem = (struct dnode*)malloc(sizeof(struct dnode));
 	newItem->value = data;
@@ -27,19 +27,21 @@ void printList()
 {
 	if (head == NULL) // no list at all 
 		cout << "List is empty";
-		return;
+	return;
 	struct dnode* cur = head;
 	while (cur != NULL)
 	{
-		cout << "	" << cur->value;
+		printf("%d \t", cur->value);
 		cur = cur->next;
 	}
 }
 
 int main() {
-	insert_begnning(43);
-	insert_begnning(22);
-	insert_begnning(30);
+	insert_begning(22);
+	insert_begning(22);
+	insert_begning(22);
+
 	printList();
+
 	return 0;
 }
