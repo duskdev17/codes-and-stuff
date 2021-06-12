@@ -35,7 +35,7 @@ void printList()
 {
 	if (head == NULL) // no list at all 
 		cout << "List is empty";
-		return;
+	return;
 	struct dnode* cur = head;
 	while (cur != NULL)
 	{
