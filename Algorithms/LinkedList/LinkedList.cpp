@@ -13,13 +13,17 @@ void insert_begnning(int data) {
 	newItem = (struct dnode*)malloc(sizeof(struct dnode));
 	newItem->value = data;
 	if (head == NULL) {
-		head = newItem; head->prev = NULL;
-		head->next = NULL; last = head;
+		head = newItem; 
+		head->prev = NULL;
+		head->next = NULL; 
+		last = head;
 	}
 	else {
 		temp = newItem;
-		temp->prev = NULL; temp->next = head;
-		head->prev = temp; head = temp;
+		temp->prev = NULL; 
+		temp->next = head;
+		head->prev = temp; 
+		head = temp;
 	}
 }
 
