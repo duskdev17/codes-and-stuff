@@ -1,50 +1,42 @@
 #include<iostream>
+#include<vector>
+#include<algorithm>
 using namespace std;
 
-//This is the menu user will see
-void showMenu() {
-	cout << "*******MENU*******" << endl;
-	cout << "1. Cheak Balance" << endl;
-	cout << "2. Deposit" << endl;
-	cout << "3. Withdraw" << endl;
-	cout << "4. Exit" << endl;
-	cout << "******************" << endl;
+void evenOddSort(int arr[], int n) {
+	vector<int> evenArr;
+	vector<int> oddArr;
+
+	for (int i = 0; i < n; i++) {
+		if (i % 2 == 0) {
+			evenArr.push_back(arr[i]);
+		}
+		else {
+			oddArr.push_back(arr[i]);
+		}
+	}
+
+	sort(evenArr.begin(), evenArr.end());
+	sort(oddArr.begin(), oddArr.end(), greater<int>());
+
+	int i = 0;
+	for (int j = 0; j < evenArr.size(); j++)
+		arr[i++] = evenArr[j];
+	for (int j = 0; j < oddArr.size(); j++)
+		arr[i++] = oddArr[j];
 }
 
 int main() {
-	// cheak balance, deposit, withdraw, show menu
-	int option;
-	double balance = 500;
+	int arr[100], n=0;
 
-	do{
-	showMenu();
-	cout << "Option:";									  //user promt for chosing option
-	cin >> option;
-
-	system("cls");
-
-	//Main code
-	switch (option) {
-	case 1: cout << "Balance is: $" << balance << endl;   //Cheaking Balance
-		break;
-	case 2: cout << "Deposit amount: $";					  //Depositing an amount
-		double depositAmount;  
-		cin >> depositAmount;
-		balance = balance + depositAmount;				  // Adding deposited amount
-		break;
-	case 3: cout << "Withdraw amount: $";					  //Withdrawing an amount
-		double withdrawAmount;
-		cin >> withdrawAmount;
-		if (withdrawAmount <= balance)                    //Cheaking if the balance is enough or not
-			balance = balance - withdrawAmount;
-		else
-			cout << "Not enough money!" << endl;
-		break;
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		cin >> arr[i];
 	}
-	} while (option != 4);
 
+	void evenOddSort(int arr, int n);
 
-
-	return 0;
+	for (int i = 0; i < n; i++) {
+		cout << arr[i] << endl;
+	}
 }
-
