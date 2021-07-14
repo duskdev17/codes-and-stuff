@@ -54,3 +54,4 @@ Example: you will be given many tables from where you need to find 3rd maximum s
 NB: This is for facing interviews of post software engineer/software developer. There may some missing points to discuss, you can add your observation in the comment box.
 Generally, if a company expect a fresher to be strong (Development skill) on specific language/ platform like; PHP, JAVA, Dot Net then the company is not good or structured enough. Because they don't care about overall quality and just want to get profit from you from the beginning day. These types of company don't have enough strength and they just use you as a money making tool.
 But, if you have experience in a specific platform beside the basic qualities I have mentioned then it is great. But, try to avoid companies who want to make money using you from the very beginning. Hope you understand.
+.
