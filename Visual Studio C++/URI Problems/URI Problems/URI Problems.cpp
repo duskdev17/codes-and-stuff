@@ -1,42 +1,41 @@
 #include<iostream>
-#include<vector>
-#include<algorithm>
+#define SIZE 100
 using namespace std;
 
-void evenOddSort(int arr[], int n) {
-	vector<int> evenArr;
-	vector<int> oddArr;
-
-	for (int i = 0; i < n; i++) {
-		if (i % 2 == 0) {
-			evenArr.push_back(arr[i]);
-		}
-		else {
-			oddArr.push_back(arr[i]);
-		}
-	}
-
-	sort(evenArr.begin(), evenArr.end());
-	sort(oddArr.begin(), oddArr.end(), greater<int>());
-
-	int i = 0;
-	for (int j = 0; j < evenArr.size(); j++)
-		arr[i++] = evenArr[j];
-	for (int j = 0; j < oddArr.size(); j++)
-		arr[i++] = oddArr[j];
-}
-
 int main() {
-	int arr[100], n=0;
+	int n, even[SIZE], odd[SIZE];
+	int number[SIZE], evenCount=0, oddCount=0;
 
 	cin >> n;
+
 	for (int i = 0; i < n; i++) {
-		cin >> arr[i];
+		cin >> number[i];
+
+		if (number[i] % 2 == 0) {
+			evenCount++;
+		}
+		else if (number[i] != 0) {
+			oddCount++;
+		}
 	}
 
-	void evenOddSort(int arr, int n);
 
 	for (int i = 0; i < n; i++) {
-		cout << arr[i] << endl;
+		if (number[i] % 2 == 0) {
+			for (int j = 0; j < evenCount; j++) {
+				even[j] = number[i];
+			}
+		}
+		else if(number[i] != 0){
+			for (int k = 0; k < oddCount; k++) {
+				odd[k] = number[i];
+			}
+		}
+	}
+
+
+	for (int i = 0; i < n; i++) {
+		//cout << number[i] << " " << endl;
+		cout << even[i] << endl;
 	}
 }
