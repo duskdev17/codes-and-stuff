@@ -3,8 +3,7 @@
 using namespace std;
 
 int main() {
-	int n, even[SIZE], odd[SIZE];
-	int number[SIZE], evenCount=0, oddCount=0;
+	int n, even[SIZE] = { 0 }, odd[SIZE], number[SIZE], evenCount = 0, oddCount = 0;
 
 	cin >> n;
 
@@ -12,10 +11,10 @@ int main() {
 		cin >> number[i];
 
 		if (number[i] % 2 == 0) {
-			evenCount++;
+			evenCount = evenCount+1;
 		}
-		else if (number[i] != 0) {
-			oddCount++;
+		else if (number[i] %2!= 0) {
+			oddCount = oddCount+1;
 		}
 	}
 
@@ -26,7 +25,7 @@ int main() {
 				even[j] = number[i];
 			}
 		}
-		else if(number[i] != 0){
+		else if(number[i]%2 != 0){
 			for (int k = 0; k < oddCount; k++) {
 				odd[k] = number[i];
 			}
@@ -34,7 +33,7 @@ int main() {
 	}
 
 
-	for (int i = 0; i < n; i++) {
+	for (int i = 0; i < evenCount; i++) {
 		//cout << number[i] << " " << endl;
 		cout << even[i] << endl;
 	}
