@@ -1,40 +1,30 @@
-#include<iostream>
-#define SIZE 100
+//task1 
+#include <iostream>
+#include <string.h>
 using namespace std;
 
+char* cp(char[], int);
+char ara[100];
 int main() {
-	int n, even[SIZE] = { 0 }, odd[SIZE], number[SIZE], evenCount = 0, oddCount = 0;
+    int n;
+    cout << "Enter message to be encrypted : ";
+    cin.get(ara, 100);
+    cout << "Enter shift amount : ";
+    cin >> n;
+    cout << "\nEncrypted message : " << cp(ara, n);
+    return 0;
+}
 
-	cin >> n;
-
-	for (int i = 0; i < n; i++) {
-		cin >> number[i];
-
-		if (number[i] % 2 == 0) {
-			evenCount = evenCount+1;
-		}
-		else if (number[i] %2!= 0) {
-			oddCount = oddCount+1;
-		}
-	}
-
-
-	for (int i = 0; i < n; i++) {
-		if (number[i] % 2 == 0) {
-			for (int j = 0; j < evenCount; j++) {
-				even[j] = number[i];
-			}
-		}
-		else if(number[i]%2 != 0){
-			for (int k = 0; k < oddCount; k++) {
-				odd[k] = number[i];
-			}
-		}
-	}
-
-
-	for (int i = 0; i < evenCount; i++) {
-		//cout << number[i] << " " << endl;
-		cout << even[i] << endl;
-	}
+char* cp(char ara[200], int n)
+{
+    int len = strlen(ara), i;
+    for (i = 0; ara[i] != '\0'; i++) {
+        if ((ara[i] >= 'A' && ara[i] <= 'Z') || (ara[i] >= 'a' && ara[i] <= 'z')) {
+            ara[i] = ara[i] + n;
+        }
+        else {
+            ara[i] = ara[i];
+        }
+    }
+    return ara;
 }
