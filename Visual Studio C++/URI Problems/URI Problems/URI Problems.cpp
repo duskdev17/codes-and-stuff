@@ -1,30 +1,40 @@
-//task1 
-#include <iostream>
-#include <string.h>
+#include<iostream>
 using namespace std;
 
-char* cp(char[], int);
-char ara[100];
-int main() {
-    int n;
-    cout << "Enter message to be encrypted : ";
-    cin.get(ara, 100);
-    cout << "Enter shift amount : ";
-    cin >> n;
-    cout << "\nEncrypted message : " << cp(ara, n);
-    return 0;
+double func(double x)
+{
+    //given equation
+    return x * x * x + 2 * x + 2;
 }
 
-char* cp(char ara[200], int n)
+void falsePos(double a, double b)
 {
-    int len = strlen(ara), i;
-    for (i = 0; ara[i] != '\0'; i++) {
-        if ((ara[i] >= 'A' && ara[i] <= 'Z') || (ara[i] >= 'a' && ara[i] <= 'z')) {
-            ara[i] = ara[i] + n;
-        }
-        else {
-            ara[i] = ara[i];
-        }
+    if (func(a) * func(b) >= 0)
+    {
+        cout << "You have assumed a and b incorrectly\n";
+        return;
     }
-    return ara;
+    double c = a;
+    for (int i = 0; i < 10000; i++)
+    {
+        //formula
+        c = (a * func(b) - b * func(a)) / (func(b) - func(a));
+
+        if (func(c) == 0)
+            break;
+        else if (func(c) * func(a) < 0)
+            b = c;
+        else
+            a = c;
+    }
+    cout << "The value of root is :" << c;
+}
+
+int main()
+{
+    double a = 1, b = -2;
+
+    falsePos(a, b);
+
+    return 0;
 }
