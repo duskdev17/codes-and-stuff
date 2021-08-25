@@ -1,40 +1,99 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-double func(double x)
-{
-    //given equation
-    return x * x * x + 2 * x + 2;
-}
+int a[5] = { 10,20,30,40,50 };
 
-void falsePos(double a, double b)
+void traverse(int);
+void insertFirst(int);
+void insertLast(int);
+void insertPosition(int, int);
+void deleteFrist(void);
+void deleteLast(void);
+void deletePos(int);
+void update(int, int);
+void search(int, int);
+
+
+void traverse(int n)
 {
-    if (func(a) * func(b) >= 0)
-    {
-        cout << "You have assumed a and b incorrectly\n";
-        return;
+    int i;
+    for (i = 0; i < n; i++) {
+        cout << a[i] << " ";
     }
-    double c = a;
-    for (int i = 0; i < 10000; i++)
-    {
-        //formula
-        c = (a * func(b) - b * func(a)) / (func(b) - func(a));
-
-        if (func(c) == 0)
-            break;
-        else if (func(c) * func(a) < 0)
-            b = c;
-        else
-            a = c;
-    }
-    cout << "The value of root is :" << c;
 }
 
-int main()
+void insertFirst(int)
 {
-    double a = 1, b = -2;
+    int i;
 
-    falsePos(a, b);
-
-    return 0;
 }
+
+void insetLast(int) {
+
+}
+
+void insertPosition(int, int) {
+
+}
+
+void deleteFirst(void)
+{
+    int i;
+    for (i = 0; i < 5; i++) {
+        a[i] = a[i + 1];
+    }
+    for (i = 0; i < 4; i++) {
+        cout << a[i] << " ";
+    }
+}
+
+void deleteLast(void)
+{
+
+}
+
+
+
+void deleteLast(void) {
+
+}
+
+void deletePos(int) {
+
+}
+
+void update(int value, int index)
+{
+    for (int i = 0; i < 5; i++) {
+        if (i == index)
+            a[i] = value;
+    }
+}
+
+void search(int value, int n)
+{
+    int i;
+    for (i = 0; i <= 4; i++) {
+        if (a[i] == value) {
+            cout << "Element found in " << i << " th index !!" << endl;
+        }
+    }
+}
+
+
+int main() {
+    traverse(5);
+    cout << endl;
+    int value, index;
+    cout << "Enter value to search : ";
+    cin >> value;
+    search(value, 5);
+    cout << endl;
+    cout << "Enter the value to be updated : ";
+    cin >> value;
+    cout << "Enter the index number to be updated : ";
+    cin >> index;
+    update(value, index);
+    deleteFirst();
+}
+
