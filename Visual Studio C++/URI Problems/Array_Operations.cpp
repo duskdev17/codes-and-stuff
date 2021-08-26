@@ -1,4 +1,6 @@
 #include <iostream>
+#include<stdlib.h>
+#include<cstdlib>
 using namespace std;
 
 int a[5] = { 10, 20, 30, 40, 50 };
@@ -148,7 +150,7 @@ int main() {
 
         system("cls");
 
-        //Main code
+        //Menu
         switch (option) {
         case 1:
             //traverse
