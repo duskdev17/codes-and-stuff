@@ -16,6 +16,88 @@ void deletePos(int, int);
 void update(int, int);
 void search(int, int);
 
+
+int main() {
+    int option, value, index, position;
+
+    int arrSize = sizeof(a) / sizeof(a[0]);
+
+    do {
+        showMenu();
+        cout << "Option:";									  //user promt for chosing action
+        cin >> option;
+
+        system("cls");
+
+        //Menu
+        switch (option) {
+        case 1:
+            //traverse
+            traverse(5);
+            break;
+
+        case 2:
+            //insert First
+            cout << "\nEnter value to insert first : ";
+            cin >> value;
+            insertFirst(value);
+            break;
+
+        case 3:
+            //insert Last
+            cout << "\nEnter value to insert Last : ";
+            cin >> value;
+            insertLast(value, arrSize);
+            break;
+
+        case 4:
+            //insert Position
+            cout << "\nEnter value and postion: ";
+            cin >> value >> position;
+            insertPosition(value, position, arrSize);
+            break;
+
+        case 5:
+            //delete First
+            cout << "\nDeleting first element.." << endl;
+            deleteFirst();
+            break;
+
+        case 6:
+            //delete Last
+            cout << "\nDeleting last element.." << endl;
+            deleteLast(arrSize);
+            break;
+
+        case 7:
+            //delete specific value
+            cout << "\nEnter the value from the array to be deleted: " << endl;
+            cin >> value;
+            deletePos(value, arrSize);
+            break;
+
+        case 8:
+            //update
+            cout << "Enter the value to be updated : ";
+            cin >> value;
+            cout << "Enter the index number to be updated : ";
+            cin >> index;
+            update(value, index);
+            deleteFirst();
+            break;
+
+        case 9:
+            //search
+            cout << endl;
+            cout << "Enter value to search : ";
+            cin >> value;
+            search(value, 5);
+            cout << endl;
+            break;
+        }
+    } while (option != 10);
+}
+
 void showMenu() {
     cout << "*******MENU*******" << endl;
     cout << "1. Traverse" << endl;
@@ -135,86 +217,4 @@ void search(int value, int n)
         }
     }
     cout << endl;
-}
-
-
-int main() {
-    int option, value, index, position;
-
-    int arrSize = sizeof(a) / sizeof(a[0]);
-
-    do {
-        showMenu();
-        cout << "Option:";									  //user promt for chosing action
-        cin >> option;
-
-        system("cls");
-
-        //Menu
-        switch (option) {
-        case 1:
-            //traverse
-            traverse(5);
-            break;
-
-        case 2:
-            //insert First
-            cout << "\nEnter value to insert first : ";
-            cin >> value;
-            insertFirst(value);
-            break;
-
-        case 3:
-            //insert Last
-            cout << "\nEnter value to insert Last : ";
-            cin >> value;
-            insertLast(value, arrSize);
-            break;
-
-        case 4:
-            //insert Position
-            cout << "\nEnter value and postion: ";
-            cin >> value >> position;
-            insertPosition(value, position, arrSize);
-            break;
-
-        case 5:
-            //delete First
-            cout << "\nDeleting first element.." << endl;
-            deleteFirst();
-            break;
-
-        case 6:
-            //delete Last
-            cout << "\nDeleting last element.." << endl;
-            deleteLast(arrSize);
-            break;
-
-        case 7:
-            //delete specific value
-            cout << "\nEnter the value from the array to be deleted: " << endl;
-            cin >> value;
-            deletePos(value, arrSize);
-            break;
-
-        case 8:
-            //update
-            cout << "Enter the value to be updated : ";
-            cin >> value;
-            cout << "Enter the index number to be updated : ";
-            cin >> index;
-            update(value, index);
-            deleteFirst();
-            break;
-
-        case 9:
-            //search
-            cout << endl;
-            cout << "Enter value to search : ";
-            cin >> value;
-            search(value, 5);
-            cout << endl;
-            break;
-        }
-    } while (option != 10);
 }

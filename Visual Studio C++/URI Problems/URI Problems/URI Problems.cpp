@@ -3,19 +3,100 @@
 #include<cstdlib>
 using namespace std;
 
-char arr[100] = "BAUST";
+int a[5] = { 10, 20, 30, 40, 50 };
 
 void showMenu();
 void traverse(int);
-void insertFirst(char, int);
-void insertLast(char, int);
-void insertPosition(char, int, int);
+void insertFirst(int);
+void insertLast(int, int);
+void insertPosition(int, int, int);
 void deleteFirst(void);
 void deleteLast(int);
-void deletePos(char, int);
-void update(int, char, int);
-void search(char, int);
+void deletePos(int, int);
+void update(int, int);
+void search(int, int);
 
+
+int main() {
+    int option, value, index, position;
+
+    int arrSize = sizeof(a) / sizeof(a[0]);
+
+    do {
+        showMenu();
+        cout << "Option:";									  //user promt for chosing action
+        cin >> option;
+
+        system("cls");
+
+        //Menu
+        switch (option) {
+        case 1:
+            //traverse
+            traverse(5);
+            break;
+
+        case 2:
+            //insert First
+            cout << "\nEnter value to insert first : ";
+            cin >> value;
+            insertFirst(value);
+            break;
+
+        case 3:
+            //insert Last
+            cout << "\nEnter value to insert Last : ";
+            cin >> value;
+            insertLast(value, arrSize);
+            break;
+
+        case 4:
+            //insert Position
+            cout << "\nEnter value and postion: ";
+            cin >> value >> position;
+            insertPosition(value, position, arrSize);
+            break;
+
+        case 5:
+            //delete First
+            cout << "\nDeleting first element.." << endl;
+            deleteFirst();
+            break;
+
+        case 6:
+            //delete Last
+            cout << "\nDeleting last element.." << endl;
+            deleteLast(arrSize);
+            break;
+
+        case 7:
+            //delete specific value
+            cout << "\nEnter the value from the array to be deleted: " << endl;
+            cin >> value;
+            deletePos(value, arrSize);
+            break;
+
+        case 8:
+            //update
+            cout << "Enter the value to be updated : ";
+            cin >> value;
+            cout << "Enter the index number to be updated : ";
+            cin >> index;
+            update(value, index);
+            deleteFirst();
+            break;
+
+        case 9:
+            //search
+            cout << endl;
+            cout << "Enter value to search : ";
+            cin >> value;
+            search(value, 5);
+            cout << endl;
+            break;
+        }
+    } while (option != 10);
+}
 
 void showMenu() {
     cout << "*******MENU*******" << endl;
@@ -32,43 +113,47 @@ void showMenu() {
     cout << "******************" << endl;
 }
 
-
-void traverse(int len)
-{
-    for (int i = 0; i < len; i++) {
-        cout << arr[i];
-    }
-    cout << endl;
-}
-
-void insertFirst(char ch, int len)
+void traverse(int n)
 {
     int i;
-    arr[0] = ch;
-
-    for (i = 0; i < len; i++) {
-        cout << arr[i];
+    for (i = 0; i < n; i++) {
+        cout << a[i] << " ";
     }
     cout << endl;
 }
 
-void insertLast(char ch, int len)
+void insertFirst(int value)
 {
-    len++;
-    arr[5] = ch;
-    arr[6] = '\0';
+    int i;
+    a[0] = value;
 
-    for (int i = 0; i < len; i++) {
-        cout << arr[i];
+    for (i = 0; i < 5; i++) {
+        cout << a[i] << " ";
     }
     cout << endl;
 }
 
-void insertPosition(char ch, int pos, int len) {
-    arr[pos] = ch;
+void insertLast(int value, int arrSize) {
+    int i;
+    a[arrSize - 1] = value;
 
-    for (int i = 0; i < len; i++) {
-        cout << arr[i];
+    for (i = 0; i < arrSize; i++) {
+        cout << a[i] << " ";
+    }
+    cout << endl;
+}
+
+void insertPosition(int value, int position, int arrSize) {
+    int i;
+    for (i = arrSize - 1; i >= position - 1; i--)
+    {
+        a[i + 1] = a[i];
+    }
+
+    a[position - 1] = value;
+
+    for (i = 0; i < 4; i++) {
+        cout << a[i] << " ";
     }
     cout << endl;
 }
@@ -77,139 +162,59 @@ void deleteFirst(void)
 {
     int i;
     for (i = 0; i < 5; i++) {
-        arr[i] = arr[i + 1];
+        a[i] = a[i + 1];
     }
     for (i = 0; i < 4; i++) {
-        cout << arr[i];
+        cout << a[i] << " ";
     }
     cout << endl;
 }
 
-void deleteLast(int len) {
+void deleteLast(int arrSize) {
     int i;
-    arr[len] = NULL;
+    a[arrSize] = NULL;
 
-    for (i = 0; i < len - 1; i++) {
-        cout << arr[i];
+    for (i = 0; i < arrSize - 1; i++) {
+        cout << a[i] << " ";
     }
     cout << endl;
 }
 
-void deletePos(char ch, int len) {
+void deletePos(int value, int arrSize) {
     int i;
-    for (i = 0; i < len; i++)
-        if (arr[i] == ch)
+    for (i = 0; i < arrSize; i++)
+        if (a[i] == value)
             break;
 
-    if (i < len)
+    if (i < arrSize)
     {
-        len = len - 1;
-        for (int j = i; j < len; j++)
-            arr[j] = arr[j + 1];
+        arrSize = arrSize - 1;
+        for (int j = i; j < arrSize; j++)
+            a[j] = a[j + 1];
     }
 
-    for (i = 0; i < len; i++) {
-        cout << arr[i];
-    }
-    cout << endl;
-}
-
-void update(int pos, char ch, int len)
-{
-    arr[pos] = ch;
-
-    for (int i = 0; i < len; i++) {
-        cout << arr[i];
+    for (i = 0; i < arrSize; i++) {
+        cout << a[i] << " ";
     }
     cout << endl;
 }
 
-void search(char ch, int len)
+void update(int value, int index)
 {
-    for (int i = 0; i < len; i++) {
-        if (arr[i] == ch) {
-            cout << "Character found at " << i << " th index";
+    for (int i = 0; i < 5; i++) {
+        if (i == index)
+            a[i] = value;
+    }
+    cout << endl;
+}
+
+void search(int value, int n)
+{
+    int i;
+    for (i = 0; i <= 4; i++) {
+        if (a[i] == value) {
+            cout << "Element found in " << i << " th index !!" << endl;
         }
     }
     cout << endl;
-}
-
-
-int main() {
-    int len, pos=0, option;
-    char ch;
-
-    len = strlen(arr);
-
-    do {
-        showMenu();
-        cout << "Option:";	//user promt for chosing action
-        cin >> option;
-
-        system("cls");
-
-        //Menu
-        switch (option) {
-        case 1:
-            //traverse
-            traverse(len);
-            break;
-
-        case 2:
-            //insert First
-            cout << "Enter a character to insert first: ";
-            cin >> ch;
-            insertFirst(ch, len);
-            break;
-
-        case 3:
-            //insert Last
-            cout << "Enter a character to insert last: ";
-            cin >> ch;
-            insertLast(ch, len);
-            break;
-
-        case 4:
-            //insert Position
-            cout << "Enter a character and position sequentially: ";
-            cin >> ch >> pos;
-            insertPosition(ch, pos, len);
-            break;
-
-        case 5:
-            //delete First
-            cout << "Deleting first character.." << endl;
-            deleteFirst();
-            break;
-
-        case 6:
-            //delete Last
-            cout << "Deleting last character.." << endl;
-            deleteLast(len);
-            break;
-
-        case 7:
-            //delete Position
-            cout << "Enter the character to be deleted: ";
-            cin >> ch;
-            deletePos(ch, len);
-            break;
-
-        case 8:
-            //update
-            cout << "Enter position and character sequentially: ";
-            cin >> pos >> ch;
-            update(pos, ch, len);
-            break;
-
-        case 9:
-            //search
-            cout << "Enter a character to search: ";
-            cin >> ch;
-            search(ch, len);
-            break;
-        }
-    } while (option != 10);
-
-    return 0;
 }
