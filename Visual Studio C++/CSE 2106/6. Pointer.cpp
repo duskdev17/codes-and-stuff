@@ -15,7 +15,7 @@ int main() {
 	ptr1 = &firstNum;
 	ptr2 = &secondNum;
 
-	result = *ptr1 / *ptr2;
+	result = *ptr1 * *ptr2;
 
 	cout << "\nAfter multiplication: " << result << endl;
 

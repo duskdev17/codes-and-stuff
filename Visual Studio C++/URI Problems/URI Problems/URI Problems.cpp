@@ -1,35 +1,24 @@
-//Structures & Union 
-//
-// C program to illustrate differences
-// between structure and Union
-#include <stdio.h>
-#include <string.h>
+//c++ pointer
+//Multiply two numbers using pointer
+#include<iostream>
+using namespace std;
 
-// declaring structure
-struct struct_example
-{
-	int integer;
-	float decimal;
-	char name[20];
-};
+int main() {
+	int firstNum, secondNum, result, * ptr1, * ptr2;
 
-// declaring union
+	cout << "Enter first number: ";
+	cin >> firstNum;
 
-union union_example
-{
-	int integer;
-	float decimal;
-	char name[20];
-};
+	cout << "\nEnter second number: ";
+	cin >> secondNum;
 
-int main()
-{
-	struct struct_example s = { 18,38,"geeksforgeeks" };
-	union union_example u = { 18,38,"geeksforgeeks" };
+	ptr1 = &firstNum;
+	ptr2 = &secondNum;
 
-	// difference two and three
-	printf("\nsizeof structure : %d\n", sizeof(s));
-	printf("sizeof union : %d\n", sizeof(u));
+	result = *ptr1 * *ptr2;
+
+	cout << "\nAfter multiplication: " << result << endl;
+
 
 	return 0;
 }
