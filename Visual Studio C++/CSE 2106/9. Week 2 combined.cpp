@@ -1,38 +1,61 @@
-//Week 2 combined
-//Write a C++ program to that stores student data
-#include<iostream>
-#include<string.h>
+#include <iostream>
 using namespace std;
 
-struct student {
-	string name;
-	int id;
-	float cgpa;
+struct s {
+    int i;
+}s1;
+
+union u {
+    int j;
+};
+class a {
+
+private:
+    char name[100] = "POP";
+
+public:
+    int x;
+    float y;
+
+    a(void) {
+        cout << "printing from default const. " << endl << "Value of x is : " << x << endl << endl;
+    }
+    a(int y)
+    {
+        x = y;
+        cout << " printing form Parameterized const." << endl << "Value of x is : " << x << endl;
+    }
+    a(float f)
+    {
+        y = f;
+        cout << " printing form Parameterized const." << endl << "Value of y is : " << y << endl;
+    }
+    void printpe(void)
+    {
+        cout << name << endl;
+    }
 };
 
-void display(struct student class_record[100])
-{
-	int i, len = 3;
+class b : public a {
 
-	for (i = 0; i < len; i++) {
-		cout << "Roll number: " << class_record[i].name << endl;
-		cout << "Grade:" << class_record[i].id << endl;
-		cout << "CGPA: " << class_record[i].cgpa << endl;
-	}
-}
+};
 
-int main()
-{
-	int n;
+int main() {
+    a o;
+    o.printpe();
 
-	struct student class_record[100] = {
-			{ "Anik", 76, 0.00f },
-			{ "Siam", 80, 4.00f },
-			{ "Soumya", 66, 4.00f }
-	};
+    b ob;
+    ob.printpe();
+    s1.i = 100;
+    cout << "Value of struct member : " << s1.i << endl;
+    union u u1;
+    u1.j = 200;
+    cout << "Value of struct member : " << u1.j << endl;
 
+    int i;
+    float j;
+    char x;
 
-	display(class_record);
-
-	return 0;
+    i = 11000;
+    x = '4';
 }
