@@ -17,84 +17,6 @@ void deletePos(char, int);
 void update(int, char, int);
 void search(char, int);
 
-int main() {
-    int len, pos = 0, option;
-    char ch;
-
-    len = strlen(arr);
-
-    do {
-        showMenu();
-        cout << "Option:";	//user promt for chosing action
-        cin >> option;
-
-        system("cls");
-
-        //Menu
-        switch (option) {
-        case 1:
-            //traverse
-            traverse(len);
-            break;
-
-        case 2:
-            //insert First
-            cout << "Enter a character to insert first: ";
-            cin >> ch;
-            insertFirst(ch, len);
-            break;
-
-        case 3:
-            //insert Last
-            cout << "Enter a character to insert last: ";
-            cin >> ch;
-            insertLast(ch, len);
-            break;
-
-        case 4:
-            //insert Position
-            cout << "Enter a character and position sequentially: ";
-            cin >> ch >> pos;
-            insertPosition(ch, pos, len);
-            break;
-
-        case 5:
-            //delete First
-            cout << "Deleting first character.." << endl;
-            deleteFirst();
-            break;
-
-        case 6:
-            //delete Last
-            cout << "Deleting last character.." << endl;
-            deleteLast(len);
-            break;
-
-        case 7:
-            //delete Position
-            cout << "Enter the character to be deleted: ";
-            cin >> ch;
-            deletePos(ch, len);
-            break;
-
-        case 8:
-            //update
-            cout << "Enter position and character sequentially: ";
-            cin >> pos >> ch;
-            update(pos, ch, len);
-            break;
-
-        case 9:
-            //search
-            cout << "Enter a character to search: ";
-            cin >> ch;
-            search(ch, len);
-            break;
-        }
-    } while (option != 10);
-
-    return 0;
-}
 
 void showMenu() {
     cout << "*******MENU*******" << endl;
@@ -211,4 +133,83 @@ void search(char ch, int len)
         }
     }
     cout << endl;
+}
+
+int main() {
+    int len, pos = 0, option;
+    char ch;
+
+    len = strlen(arr);
+
+    do {
+        showMenu();
+        cout << "Option:";	//user promt for chosing action
+        cin >> option;
+
+        system("cls");
+
+        //Menu
+        switch (option) {
+        case 1:
+            //traverse
+            traverse(len);
+            break;
+
+        case 2:
+            //insert First
+            cout << "Enter a character to insert first: ";
+            cin >> ch;
+            insertFirst(ch, len);
+            break;
+
+        case 3:
+            //insert Last
+            cout << "Enter a character to insert last: ";
+            cin >> ch;
+            insertLast(ch, len);
+            break;
+
+        case 4:
+            //insert Position
+            cout << "Enter a character and position sequentially: ";
+            cin >> ch >> pos;
+            insertPosition(ch, pos, len);
+            break;
+
+        case 5:
+            //delete First
+            cout << "Deleting first character.." << endl;
+            deleteFirst();
+            break;
+
+        case 6:
+            //delete Last
+            cout << "Deleting last character.." << endl;
+            deleteLast(len);
+            break;
+
+        case 7:
+            //delete Position
+            cout << "Enter the character to be deleted: ";
+            cin >> ch;
+            deletePos(ch, len);
+            break;
+
+        case 8:
+            //update
+            cout << "Enter position and character sequentially: ";
+            cin >> pos >> ch;
+            update(pos, ch, len);
+            break;
+
+        case 9:
+            //search
+            cout << "Enter a character to search: ";
+            cin >> ch;
+            search(ch, len);
+            break;
+        }
+    } while (option != 10);
+
+    return 0;
 }
