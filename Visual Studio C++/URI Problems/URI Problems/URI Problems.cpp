@@ -1,69 +1,74 @@
-//Last in First out - Stack
+//Queue: First in First out
 #include<iostream>
 #define N 5
 using namespace std;
 
-int stack[N];
-int top = -1;
+int queue[N], front = -1, rear = -1;
 
-void push()
-{
-	int x;
-	cout << "Enter data";
-	cin >> x;
-	if (top == N - 1)
+void enqueue(int x){
+	if (rear == N - 1)
+	{
 		cout << "Overflow" << endl;
-	else
-	{
-		top++;
-		stack[top] = x;
 	}
-}
 
-void pop() {
-	int item;
+	else if ((front == -1) && (rear == -1))
+	{
+		front = rear = 0;
+		queue[rear] = x;
+	}
 
-	if (top == -1)
-		cout << "Underflow" << endl;
 	else {
-		item = stack[top];
-		top--;
-		cout << "Popped Item: " << item << endl;
+		rear++;
+		queue[rear] = x;
 	}
 }
 
-void Display_top()
-	{
-	if (top == -1)		cout << "Underflow" << endl;
-	else
-		cout << "Top item: " << stack[top] << endl;
+void dequeue() {
+	if (front == -1 && rear == -1) {
+		cout << "Underflow" << endl;
 	}
 
-void Display(){
-		int i;
+	else if (front == rear) {
+		front = rear = -1;
+	}
 
-		for (i = top; i >= 0; i--) {
-			cout << " " << stack[i];
+	else {
+		cout << "Front of the queue: " << queue[front] << endl;
+		front++;
+	}
+}
+
+void display() {
+	int i;
+
+	if (front = rear = -1) {
+		cout << "Empty" << endl;
+	}
+
+	else {
+		for (i = front; i <= rear; i++)
+		{
+			cout << queue[i] << " " << endl;
 		}
-	}void main()
-{
-	Push()
-		Pop()
-		Display()
-		Display top()
-		Int ch,
-		Do{
-		Printf(Enter choices 1. Push….)
-		Scanf(“ % d”,&ch);
-		Switch(ch)
-		Case 1: Push()
-		Break;
-		Case: 2 Pop()
-		Break;
-		Case 3
-		Case 4
-		Default: Invalid choice
-	}while(ch != 0)
+	}
+}
 
-			Getch()
+void display_top(){
+	if (front = rear = -1) {
+		cout << "Empty" << endl;
+	}
+
+	else{
+		cout << "Queue Front: " << queue[front] << endl;
+	}
+}
+
+int main(){
+	enqueue(2);
+	enqueue(5);
+	enqueue(-1);
+	display();
+		//Top()
+	//dequeue();
+	//display();
 }
