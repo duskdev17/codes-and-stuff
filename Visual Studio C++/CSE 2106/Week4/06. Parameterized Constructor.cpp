@@ -1,5 +1,5 @@
 //Parameterized Constructor
-//Write a c++ program 
+//Write a c++ program using constructor to print the square root of a number
 #include<iostream>
 #include<math.h>
 using namespace std;

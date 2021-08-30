@@ -1,5 +1,5 @@
 //Inline Function
-//Write a c++ program
+//Write a c++ program using inline function that prints the Fibonacci Series
 #include<iostream>
 using namespace std;
 
