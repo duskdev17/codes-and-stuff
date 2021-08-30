@@ -6,14 +6,13 @@ using namespace std;
 int queue[N], front = -1, rear = -1;
 
 void enqueue(int x){
-	if (rear == N - 1)
-	{
+	if (rear == N - 1){
 		cout << "Overflow" << endl;
 	}
 
-	else if ((front == -1) && (rear == -1))
-	{
+	else if ((front == -1) && (rear == -1)){
 		front = rear = 0;
+		rear++;
 		queue[rear] = x;
 	}
 
@@ -24,7 +23,7 @@ void enqueue(int x){
 }
 
 void dequeue() {
-	if (front == -1 && rear == -1) {
+	if ((front == -1) && (rear == -1)){
 		cout << "Underflow" << endl;
 	}
 
@@ -33,28 +32,28 @@ void dequeue() {
 	}
 
 	else {
-		cout << "Front of the queue: " << queue[front] << endl;
+
 		front++;
+		cout << "Front of the queue: " << queue[front] << endl;
 	}
 }
 
 void display() {
 	int i;
 
-	if (front = rear = -1) {
+	if ((front == -1) && (rear == -1)) {
 		cout << "Empty" << endl;
 	}
 
 	else {
-		for (i = front; i <= rear; i++)
-		{
+		for (i = front; i <= rear; i++){
 			cout << queue[i] << " " << endl;
 		}
 	}
 }
 
 void display_top(){
-	if (front = rear = -1) {
+	if ((front == -1) && (rear == -1)) {
 		cout << "Empty" << endl;
 	}
 
@@ -67,8 +66,9 @@ int main(){
 	enqueue(2);
 	enqueue(5);
 	enqueue(-1);
+	dequeue();
 	display();
-		//Top()
+	//Top()
 	//dequeue();
 	//display();
 }
