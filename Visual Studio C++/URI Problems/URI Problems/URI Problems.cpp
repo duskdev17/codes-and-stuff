@@ -1,65 +1,72 @@
-//class, struct, union, friend function, inline function, parameterized constructor
-//Write a c++ program that covers all these topics - struct, class, union, friend function, inline function, parameterized constructor
+//Queue: First in First out
 #include<iostream>
+#define N 5
 using namespace std;
 
-class studentClass {
-public:
-	int i;
+int queue[N], front = -1, rear = -1;
 
-	//parameterized constructor
-	studentClass(int x) {
-		i = x;
-		cout << "Accessing Parameterized Constructor." << endl;
+void enqueue(int x) {
+	if (rear == N - 1) {
+		cout << "Overflow" << endl;
 	}
 
-	void displayData();
+	else if ((front == -1) && (rear == -1)) {
+		front = rear = 0;
+		rear++;
+		queue[rear] = x;
+	}
 
-	//friend function
-	friend void friendFunc(studentClass);
-};
-
-//inline function
-inline void studentClass::displayData() {
-	cout << "Inside inline function, accessing value: " << i << endl;
+	else {
+		rear++;
+		queue[rear] = x;
+	}
 }
 
-//friend function
-void friendFunc(studentClass s) {
-	cout << "Inside Friend Function Function, accessing value: " << s.i << endl;
+void dequeue() {
+	if ((front == -1) && (rear == -1)) {
+		cout << "Underflow" << endl;
+	}
+
+	else if (front == rear) {
+		front = rear = -1;
+	}
+
+	else {
+		front++;
+		cout << "Front of the queue: " << queue[front] << endl;
+	}
 }
 
-//struct
-struct studentStruct {
+void display() {
 	int i;
-};
 
-//union
-union studentUnion {
-	int i;
-};
+	if ((front == -1) && (rear == -1)) {
+		cout << "Empty" << endl;
+	}
 
-//main function
+	else {
+		for (i = front; i <= rear; i++) {
+			cout << queue[i] << " " << endl;
+		}
+	}
+}
+
+void display_top() {
+	if ((front == -1) && (rear == -1)) {
+		cout << "Empty" << endl;
+	}
+
+	else {
+		cout << "Queue Front: " << queue[front] << endl;
+	}
+}
+
 int main() {
-
-	cout << "Class:" << endl;
-
-	studentClass obj(76);
-	obj.displayData();
-	friendFunc(obj);
-
-	cout << "\nStruct:" << endl;
-
-	struct studentStruct s;
-	s.i = 76;
-	cout << "Accessing value using structure: " << s.i << endl;
-
-	cout << "\nUnion:" << endl;
-
-	union studentUnion u;
-	u.i = 76;
-	cout << "Accessing value using union: " << u.i << endl;
-
-
-	return 0;
+	enqueue(2);
+	enqueue(5);
+	enqueue(-1);
+	display();
+	//dequeue();
+	//display();
+	
 }
