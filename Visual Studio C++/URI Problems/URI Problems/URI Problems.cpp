@@ -1,72 +1,103 @@
-//Queue: First in First out
+//Last in First out - Stack
 #include<iostream>
+#include<string.h>
+#include<stdlib.h>
+#include<cstdlib>
 #define N 5
 using namespace std;
 
-int queue[N], front = -1, rear = -1;
+int stack[N];
+int top = -1;
 
-void enqueue(int x) {
-	if (rear == N - 1) {
+void showMenu() {
+	cout << "*******STACK MENU*******" << endl;
+	cout << "1. Push" << endl;
+	cout << "2. Pop" << endl;
+	cout << "3. Display Top" << endl;
+	cout << "4. Display" << endl;
+	cout << "5. Exit" << endl;
+	cout << "******************" << endl;
+}
+
+void push()
+{
+	int x;
+	cout << "Enter data: ";
+	cin >> x;
+	if (top == N - 1)
 		cout << "Overflow" << endl;
-	}
-
-	else if ((front == -1) && (rear == -1)) {
-		front = rear = 0;
-		rear++;
-		queue[rear] = x;
-	}
-
-	else {
-		rear++;
-		queue[rear] = x;
+	else
+	{
+		top++;
+		stack[top] = x;
 	}
 }
 
-void dequeue() {
-	if ((front == -1) && (rear == -1)) {
+void pop() {
+	int item;
+
+	if (top == -1)
 		cout << "Underflow" << endl;
-	}
-
-	else if (front == rear) {
-		front = rear = -1;
-	}
-
 	else {
-		front++;
-		cout << "Front of the queue: " << queue[front] << endl;
+		item = stack[top];
+		top--;
+		cout << "Popped Item: " << item << endl;
 	}
+}
+
+void display_top()
+{
+	if (top == -1)
+		cout << "Underflow" << endl;
+	else
+		cout << "Top item: " << stack[top] << endl;
 }
 
 void display() {
 	int i;
 
-	if ((front == -1) && (rear == -1)) {
-		cout << "Empty" << endl;
+	cout << "Stacked items:";
+
+	for (i = top; i >= 0; i--) {
+		cout << " " << stack[i];
 	}
 
-	else {
-		for (i = front; i <= rear; i++) {
-			cout << queue[i] << " " << endl;
+	cout << endl;
+}
+
+
+int main()
+{
+	int option;
+
+	do {
+		showMenu();
+
+		cout << "Option: ";
+		cin >> option;
+
+		system("cls");
+
+		//menu
+		switch (option) {
+		case 1:
+			push();
+			break;
+
+		case 2:
+			pop();
+			break;
+
+		case 3:
+			display_top();
+			break;
+
+		case 4:
+			display();
+			break;
 		}
-	}
-}
 
-void display_top() {
-	if ((front == -1) && (rear == -1)) {
-		cout << "Empty" << endl;
-	}
 
-	else {
-		cout << "Queue Front: " << queue[front] << endl;
-	}
-}
+	} while (option != 5);
 
-int main() {
-	enqueue(2);
-	enqueue(5);
-	enqueue(-1);
-	display();
-	//dequeue();
-	//display();
-	
 }

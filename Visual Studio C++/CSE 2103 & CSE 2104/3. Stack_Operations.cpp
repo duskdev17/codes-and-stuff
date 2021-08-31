@@ -93,10 +93,7 @@ void display() {
 			break;
 		}
 
-		default: 
-			cout << "Invalid choice" << endl;
 
 	} while (option != 5);
 
-	getchar();
 }
