@@ -13,11 +13,8 @@ triangle findAngle(double a, double b) {
 
     ob.angle1 = a;
     ob.angle2 = b;
-
     ob.angle3 = 180 - (ob.angle1 + ob.angle2);
-
     cout << "Third Angle: " << ob.angle3 << endl;
-
     return ob;
 }
 
