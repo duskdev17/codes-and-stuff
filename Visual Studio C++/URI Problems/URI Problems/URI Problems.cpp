@@ -1,20 +1,43 @@
-#include<iostream>
+//week 5
+//Passing object to function, static class members
+//Write a c++ program that calculates BMI of any individual
+#include <iostream>
 using namespace std;
 
-int main()
-{
-	int x = 10;
+class bmiData {
+public:
+    double dt;
 
-	// ref is a reference to x.
-	int& ref = x;
+    bmiData(double x) {
+        dt = x;
+    }
 
-	// Value of x is now changed to 20
-	ref = 20;
-	cout << "x = " << x << endl;
+    static void showMessege() {
+        cout << "#### BMI Calculator ####" << endl;
+    }
+};
 
-	// Value of x is now changed to 30
-	x = 30;
-	cout << "ref = " << ref << endl;
 
-	return 0;
+void bmiCalculate(bmiData  bd1, bmiData  bd2) {
+    static double bmi;
+    bmi = (bd1.dt / bd2.dt);
+
+    cout << "BMI: " << bmi << endl;
+}
+
+
+int main() {
+    double w, h;
+
+    bmiData::showMessege();
+
+    cout << "Enter Weight(kilograms): ";
+    cin >> w;
+    cout << "Enter Height(meters): ";
+    cin >> h;
+
+    bmiData weight(w), height(h);
+    bmiCalculate(weight, height);
+
+    return 0;
 }
