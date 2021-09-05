@@ -1,4 +1,4 @@
-//week 7
+//week 7 - reference
 //write a c++ program using reference calculates the factorial of a given number.
 #include<iostream>
 using namespace std;

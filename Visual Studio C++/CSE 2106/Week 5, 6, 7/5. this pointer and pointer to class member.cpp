@@ -1,5 +1,5 @@
-//week 7
-//this pointer, pointer to class member
+//week 7 - combined
+//this pointer, pointer to class member, reference
 //write a c++ program that calculates the Area of a Triangle
 #include <iostream>
 using namespace std;
