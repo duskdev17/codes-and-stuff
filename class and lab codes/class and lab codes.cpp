@@ -1,69 +1,46 @@
-//function overloading
-//Write a C++ program that Calculates the area of Square, Circle and Triangle using only one function.
+//C++ Program to find root of an equations using secant method
 #include<iostream>
 using namespace std;
 
-class areaClass {
-private:
-	double x;
-public:
-	void area(double a) {
-		x = a * a;
-		cout << "Area of the Square is: " << x << endl;
-	}
-
-	void area(double a, double b) {
-		x = a * b * b;
-		cout << "Area of Circle is: " << x << endl;
-	}
-
-	void area(double a, double b, double c) {
-		x = a * b * c;
-		cout << "Area of Triangle is: " << x << endl;
-	}
-};
-
-void showMenu() {
-	cout << "1. Area of Square." << endl;
-	cout << "2. Area of Circle." << endl;
-	cout << "3. Area of Triangle." << endl;
-	cout << "4. Exit." << endl;
+float f(float x)
+{
+	// x^3+x-1
+	float f = pow(x, 3) + x - 1;
+	return f;
 }
 
-int main() {
-	int option = 0;
-	double s, r, b, h;
+void secant(float x1, float x2, float E) {
+	float n = 0, xm, x0, c;
+	if (f(x1) * f(x2) < 0) {
+		do {
+			x0 = (x1 * f(x2) - x2 * f(x1)) / (f(x2) - f(x1));
+			c = f(x1) * f(x0);
+			x1 = x2;
+			x2 = x0;
+			n++;
+			if (c == 0)
+				break;
+			xm = (x1 * f(x2) - x2 * f(x1)) / (f(x2) - f(x1));
+		} while (fabs(xm - x0) >= E);
 
-	areaClass obj;
 
-	do {
-		showMenu();
-		cout << "Option: ";
-		cin >> option;
+		cout << "Root of the given equation=" << x0 << endl;
+		cout << "No. of iterations = " << n << endl;
+	}
+	else
+		cout << "Can not find a root in the given inteval";
+}
 
-		switch (option) {
-		case 1:
-			cout << "Enter the side of Square: ";
-			cin >> s;
 
-			obj.area(s);
-			break;
+int main()
+{
+	float x1, x2, E = 0.0001; // initial guess can be 0 and 1
 
-		case 2:
-			cout << "Enter the Radius of Circle: ";
-			cin >> r;
+	cout << "Enter Value for x1:";
+	cin >> x1;
+	cout << "Enter Value for x2:";
+	cin >> x2;
 
-			obj.area(3.1416, r);
-			break;
-
-		case 3:
-			cout << "Enter the Base and Height of Triangle: ";
-			cin >> b >> h;
-
-			obj.area(0.5, b, h);
-			break;
-
-		}
-
-	} while (option != 4);
+	secant(x1, x2, E);
+	return 0;
 }

@@ -13,10 +13,9 @@ void regula(float* x, float x0, float x1, float fx0, float fx1, int* itr)
 	cout << " Iteration No." << setw(3) << *itr << "\t X= " << setw(7) << setprecision(5) << *x << endl;
 
 }
-int main()
-{
+int main(){
 	int itr = 0, maxitr;
-	float x0, x1, x2, x3, aerr;
+	float x0, x1, x2, x3, aerr; //1, 7, 0.0001, 1000
 	cout << "Enter the value of x0: ";
 	cin >> x0;
 	cout << "Enter the value of x1: ";
