@@ -1,46 +1,40 @@
-//C++ Program to find root of an equations using secant method
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-float f(float x)
-{
-	// x^3+x-1
-	float f = pow(x, 3) + x - 1;
-	return f;
+int binarySearch(int array[], int key, int low, int high) {
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+
+        if (array[mid] == key)
+            return mid;
+
+        if (array[mid] < key)
+            low = mid + 1;
+
+        else
+            high = mid - 1;
+    }
+
+    return -1;
 }
 
-void secant(float x1, float x2, float E) {
-	float n = 0, xm, x0, c;
-	if (f(x1) * f(x2) < 0) {
-		do {
-			x0 = (x1 * f(x2) - x2 * f(x1)) / (f(x2) - f(x1));
-			c = f(x1) * f(x0);
-			x1 = x2;
-			x2 = x0;
-			n++;
-			if (c == 0)
-				break;
-			xm = (x1 * f(x2) - x2 * f(x1)) / (f(x2) - f(x1));
-		} while (fabs(xm - x0) >= E);
+int main() {
+    int n, array[1000], key;
 
+    cout << "Enter how many data you want to store: ";
+    cin >> n;
 
-		cout << "Root of the given equation=" << x0 << endl;
-		cout << "No. of iterations = " << n << endl;
-	}
-	else
-		cout << "Can not find a root in the given inteval";
-}
+    for (int i = 0; i < n; i++) {
+        cin >> array[i];
+    }
 
+    cout << "Enter a value to search: ";
+    cin >> key;
 
-int main()
-{
-	float x1, x2, E = 0.0001; // initial guess can be 0 and 1
+    int result = binarySearch(array, key, 0, n - 1);
 
-	cout << "Enter Value for x1:";
-	cin >> x1;
-	cout << "Enter Value for x2:";
-	cin >> x2;
-
-	secant(x1, x2, E);
-	return 0;
+    if (result == -1)
+        printf("Element Not found!");
+    else
+        cout << "Element found at " << result << " index." << endl;
 }
