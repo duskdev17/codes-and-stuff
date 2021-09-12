@@ -1,4 +1,1 @@
-#include <iostream>
-using namespace std;
-
-
+//#include<iostream>#include<iostream>using namespace std;void  pass_arr(int n, int data[]);int main() {    int i, n, data[10];    cout << "How many numbers: n ";    cin >> n;    for (i = 0; i < n; i++)        cin >> data[i];    pass_arr(n, data);    cout << "Display the Proceed Array " << endl;    for (i = 0; i < n; i++)        cout << data[i] << " ";    return 0;}void pass_arr(int n, int data[]) {    int i, l;    for (i = 0; i < n; i++)        data[i] = data[i] * 10;}
