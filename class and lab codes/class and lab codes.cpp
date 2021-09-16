@@ -1,152 +1,220 @@
-// C program to build the complete
-// snake game
-#include<iostream>
-#include <conio.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <thread>
-#include <chrono>
-//#include <unistd.h>
+#include <iostream>
+#include <fstream>
+#include <cstdlib>
+#include <ctime>
+#include <string>
 using namespace std;
 
-int i, j, height = 20, width = 20;
-int gameover, score;
-int x, y, fruitx, fruity, flag;
-
-// Function to generate the fruit
-// within the boundary
-void setup()
+void sortnumbers(int a[], int size)
 {
-	gameover = 0;
-
-	// Stores height and width
-	x = height / 2;
-	y = width / 2;
-label1:
-	fruitx = rand() % 20;
-	if (fruitx == 0)
-		goto label1;
-label2:
-	fruity = rand() % 20;
-	if (fruity == 0)
-		goto label2;
-	score = 0;
-}
-
-// Function to draw the boundaries
-void draw()
-{
-	system("cls");
-	for (i = 0; i < height; i++) {
-		for (j = 0; j < width; j++) {
-			if (i == 0 || i == width - 1
-				|| j == 0
-				|| j == height - 1) {
-				printf("#");
-			}
-			else {
-				if (i == x && j == y)
-					printf("0");
-				else if (i == fruitx
-					&& j == fruity)
-					printf("*");
-				else
-					printf(" ");
-			}
-		}
-		printf("\n");
-	}
-
-	// Print the score after the
-	// game ends
-	printf("score = %d", score);
-	printf("\n");
-	printf("press X to quit the game");
-}
-
-// Function to take the input
-void input()
-{
-	if (kbhit()) {
-		switch (getch()) {
-		case 'a':
-			flag = 1;
-			break;
-		case 's':
-			flag = 2;
-			break;
-		case 'd':
-			flag = 3;
-			break;
-		case 'w':
-			flag = 4;
-			break;
-		case 'x':
-			gameover = 1;
-			break;
+	int i, j, k;
+	for (i = 0; i < size; i++)
+	{
+		for (j = 0; j < i; j++)
+		{
+			for (k = j + 1; k < i + 1; k++)
+				if (a[k] < a[j])
+				{
+					int temp;
+					temp = a[j];
+					a[j] = a[k];
+					a[k] = temp;
+				}
 		}
 	}
 }
 
-// Function for the logic behind
-// each movement
-void logic()
+
+int BinarySearch(const int a[], int size, int target)
 {
-	sleep(0.01);
-	switch (flag) {
-	case 1:
-		y--;
-		break;
-	case 2:
-		x++;
-		break;
-	case 3:
-		y++;
-		break;
-	case 4:
-		x--;
-		break;
-	default:
-		break;
+	int mid, first = 0, last = size - 1;
+	while (!(first > last))
+	{
+		mid = (first + last) / 2;
+		if (a[mid] == target)
+			return mid;
+		else if (a[mid] < target)
+			first = mid + 1;
+		else if (a[mid] > target)
+			last = mid - 1;
 	}
+	return -1;
+}
 
-	// If the game is over
-	if (x < 0 || x > height
-		|| y < 0 || y > width)
-		gameover = 1;
 
-	// If snake reaches the fruit
-	// then update the score
-	if (x == fruitx && y == fruity) {
-	label3:
-		fruitx = rand() % 20;
-		if (fruitx == 0)
-			goto label3;
+int LinearSearch(const int a[], int size, int target)
+{
+	if (size < 0)
+		return -1;
+	else if (a[size] == target)
+		return size;
+	else
+		return (LinearSearch(a, size - 1, target));
+}
 
-		// After eating the above fruit
-		// generate new fruit
-	label4:
-		fruity = rand() % 20;
-		if (fruity == 0)
-			goto label4;
-		score += 10;
+
+
+
+class Search
+{
+public:
+	Search();
+	Search(int size, int min, int max);
+	Search(char filename[]);
+	int find(int num);
+private:
+	int* p;
+	int used;
+	void generateData(int size);
+	void generateData(int size, int min, int max);
+	void fillInDataFromFile(string filename);
+	void Sortnumbers(int used);
+};
+
+Search::Search()
+{
+	used = 100000;
+	p = new int[used];
+	for (int i = 0; i < used; i++)
+		p[i] = rand() % 1000000;
+}
+
+
+
+Search::Search(int size, int min, int max)
+{
+	generateData(size, min, max);
+}
+
+Search::Search(char filename[])
+{
+	fillInDataFromFile(filename);
+}
+
+void Search::generateData(int size)
+{
+	used = size;
+	p = new int[size];
+	for (int i = 0; i < size; i++)
+		p[i] = rand();
+}
+
+void Search::generateData(int size, int min, int max)
+{
+	used = size;
+	p = new int[size];
+	for (int i = 0; i < size; i++)
+		p[i] = rand() % max + min;
+}
+
+void Search::fillInDataFromFile(string filename)
+{
+	ifstream input;
+	int buffer;
+	used = 0;
+	input.open(filename.c_str());
+	if (input.fail())
+	{
+		cout << "The file could not be opened.\nPress enter to exit.\n";
+		exit(1);
+	}
+	input >> buffer;
+	used++;
+	while (!input.eof())
+	{
+		input >> buffer;
+		used++;
+	}
+	input.close();
+	ifstream input2;
+	input2.open(filename.c_str());
+	p = new int[used];
+	for (int i = 0; i < used; i++)
+	{
+		input2 >> buffer;
+		p[i] = buffer;
 	}
 }
 
-// Driver Code
-void main()
+void Search::Sortnumbers(int used)
 {
-	int m, n;
+	sortnumbers(p, used);
+}
 
-	// Generate boundary
-	setup();
+int Search::find(int num)
 
-	// Until the game is over
-	while (!gameover) {
-
-		// Function Call
-		draw();
-		input();
-		logic();
+{
+	Sortnumbers(used);
+	clock_t start, finish;
+	int j;
+	start = clock();
+	for (int i = 0; i < 10000; i++)
+		j = BinarySearch(p, used, num);
+	finish = clock();
+	if (j != -1)
+	{
+		double time;
+		time = ((finish - start) / CLOCKS_PER_SEC) / 10000.0;
+		cout << "A binary search took: " << time << " seconds\n"; // it's going to output 0 or 1 second or something like that
+																  // it's normal since it's CPU time, not wall clock time	 
 	}
+	else
+		cout << "The target was not found.\n";
+	clock_t start2, finish2;
+	start2 = clock();
+	for (int i = 0; i < 10000; i++)
+		j = LinearSearch(p, used, num);
+	finish2 = clock();
+	if (j != -1)
+	{
+		double time2;
+		time2 = ((finish2 - start2) / CLOCKS_PER_SEC) / 10000.0;		// likewise
+		cout << "A linear search took: " << time2 << " seconds\n";
+	}
+	else
+		cout << "The target was not found.\n";
+	return j;
+}
+
+int main()
+{
+	Search S;
+	char c;
+	cout << "Type in the letter \"R\" to read from the existed file or \"G\" to generate random numbers instead:\n";
+	cin >> c;
+	if (c == 'r' || c == 'R')
+	{
+		char str[] = "Numbers.txt";
+		Search F(str);
+		int target;
+		int location;
+		cout << "Enter the number you are looking for.\n";
+		cin >> target;
+		location = F.find(target);
+		if (location != -1)
+			cout << "\nThe target is located at index " << location << endl;
+	}
+	else if (c == 'g' || c == 'G')
+	{
+		char response;
+		cout << "Please provide a range for the generated numbers: ";
+		int smallest, largest, length;
+		cout << "Enter the minimum.\n";
+		cin >> smallest;
+		cout << "Enter the maximum.\n";
+		cin >> largest;
+		cout << "How many numbers to generate?\n";
+		cin >> length;
+		Search S(length, smallest, largest);
+		int target;
+		int location;
+		cout << "Enter the target you want to search for.\n";
+		cin >> target;
+		location = S.find(target);
+		if (location != -1)
+			cout << "\nThe target is located at index " << location << endl;
+	}
+	else
+		cout << "Your input is not recognized, session will end.\n";
+	return 0;
 }
