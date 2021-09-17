@@ -1,4 +1,4 @@
-﻿//Merge Code -- Operator Overloading, Base Class Acess Control, Inheritance and Protected Member, Inheriting Multiple Base Class, Constructor Destructor Inheritance
+//Merge Code -- Operator Overloading, Base Class Acess Control, Inheritance and Protected Member, Inheriting Multiple Base Class, Constructor Destructor Inheritance
 //Write a C++ program that stores a market, customer and product data and calculates customers money after buying a product.
 #include<iostream>
 using namespace std;
@@ -13,7 +13,7 @@ public:
 		cin >> marketName;
 
 		cout << "Enter Market Adress: ";
-		cin>>	marketAddress;
+		cin >> marketAddress;
 	}
 	void display() {
 		cout << marketName << " " << marketAddress << endl;
@@ -23,7 +23,7 @@ public:
 class product {
 protected:
 	string productName;
-	int price; 
+	int price;
 public:
 	product() {
 		cout << "Enter Product Name: ";
@@ -37,20 +37,20 @@ public:
 	}
 };
 
-class customer : public Market, public product{
+class customer : public Market, public product {
 private:
-	string customerName; 
+	string customerName;
 	int money;
 public:
 	customer() {
-		cout << "Enter Customer Name: "; 
+		cout << "Enter Customer Name: ";
 		cin >> customerName;
 		cout << "Enter Customer Money: ";
 		cin >> money;
 	}
 
 	void print() {
-		Market::display(); 
+		Market::display();
 		product::display();
 		cout << customerName << " " << money << endl;
 	}
@@ -58,14 +58,14 @@ public:
 	void operator+(customer c) {
 		cout << "They spend in total:" << price + c.price << endl;
 
-		money=money - price; 
+		money = money - price;
 		if (money >= 0) {
 			cout << "Customer1 Have: " << money << endl;
 		}
 		else {
 			cout << "Customer 1 doesn't have enough money" << endl;
 		}
-		
+
 		c.money = c.money - c.price;
 
 		if (c.money >= 0) {
@@ -73,7 +73,7 @@ public:
 		}
 		else {
 			cout << "Customer 2 doesn't have enough money" << endl;
-		}	
+		}
 	}
 };
 
