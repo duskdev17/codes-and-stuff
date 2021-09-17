@@ -3,18 +3,18 @@
 #include<iostream>
 using namespace std;
 
-class class1{
+class class1 {
 protected:
     int x;
 public:
     void setA()
     {
-        cout << "\t\tEnter First Value: " ;
+        cout << "\t\tEnter First Value: ";
         cin >> x;
     }
 };
 
-class class2 : public class1{
+class class2 : public class1 {
 protected:
     int y;
 public:
@@ -25,7 +25,7 @@ public:
     }
 };
 
-class class3{
+class class3 {
 protected:
     int z;
 public:
@@ -36,7 +36,7 @@ public:
     }
 };
 
-class class4 : public class2, public class3{
+class class4 : public class2, public class3 {
 protected:
     int d;
 public:
@@ -49,7 +49,7 @@ public:
     }
 };
 
-int main(){
+int main() {
     class4 ob;
     ob.multiply();
     return 0;

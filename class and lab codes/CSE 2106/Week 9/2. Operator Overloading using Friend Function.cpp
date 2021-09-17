@@ -37,6 +37,4 @@ int main() {
 	Complex com1(a1, b1), com2(a2, b2);
 	Complex com3 = com1 + com2;
 	com3.display();
-
-	return 0;
 }
