@@ -6,21 +6,21 @@ using namespace std;
 class base1 {
 public:
 	base1() {
-		cout << "Base1 class called" << endl;
+		cout << "\n\tBase1 class called" << endl;
 	}
 };
 
 class base2 {
 public:
 	base2() {
-		cout << "Base2 class called" << endl;
+		cout << "\tBase2 class called" << endl;
 	}
 };
 
 class Child : public base1, public base2 {
 public:
 	Child() {
-		cout << "Child class called" << endl;
+		cout << "\tChild class called" << endl;
 	}
 };
 
