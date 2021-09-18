@@ -1,29 +1,35 @@
-﻿//Week 10 - Constructor, Destructor, Inheritance
-//Write a C++ program to demonstrate the constructor call in Inheritance
-#include<iostream>
+﻿#include <iostream>
 using namespace std;
 
 class base1 {
+    int i = 100;
+
 public:
-	base1() {
-		cout << "\n\tBase1 class called" << endl;
-	}
+    void showi(void)
+    {
+        cout << i << endl;
+    }
+
 };
 
 class base2 {
+    int j = 200;
 public:
-	base2() {
-		cout << "\tBase2 class called" << endl;
-	}
+    void showj(void)
+    {
+        cout << j << endl;
+    }
 };
 
-class Child : public base1, public base2 {
-public:
-	Child() {
-		cout << "\tChild class called" << endl;
-	}
+
+class derived : public base1, public base2 {
+
 };
 
-int main() {
-	Child obj1;
+int main()
+{
+    derived d;
+    d.showi();
+    d.showj();
+    return 0;
 }
