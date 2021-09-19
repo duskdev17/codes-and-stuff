@@ -1,4 +1,3 @@
-﻿
 #include<iostream>
 using namespace std;
 
@@ -23,12 +22,12 @@ int binarySearch(int arr[], int l, int r, int x)
 	return -1;
 }
 
-int main(void){
-	int arr[1000], n, key=0;
+int main(void) {
+	int arr[1000], n, key = 0;
 
 	cout << "Enter number of inputs: ";
 	cin >> n;
-	 
+
 	for (int i = 0; i < n; i++) {
 		cin >> arr[i];
 	}
@@ -37,7 +36,6 @@ int main(void){
 	cin >> key;
 
 	int result = binarySearch(arr, 0, n - 1, key);
-
 
 	if (result == -1) {
 		cout << "Element is not present in array";
