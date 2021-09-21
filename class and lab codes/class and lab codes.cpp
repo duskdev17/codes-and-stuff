@@ -1,47 +1,67 @@
-﻿
-#include<iostream>
+﻿#include <iostream>
 using namespace std;
 
-int binarySearch(int arr[], int l, int r, int x){
-	while (l <= r) {
-		int m = l + (r - l) / 2;
-
-		// Check if x is present at mid
-		if (arr[m] == x)
-			return m;
-
-		// If x greater, ignore left half
-		if (arr[m] < x)
-			l = m + 1;
-
-		// If x is smaller, ignore right half
-		else
-			r = m - 1;
+// Base class
+class Shape
+{
+public:
+	Shape(int l, int w)
+	{
+		length = l;
+		width = w;
+	} // default constructor
+	void get_Area()
+	{
+		cout << "This is call to parent class area" << endl;
 	}
 
-	return -1;
-}
+protected:
+	int length, width;
+};
 
-int main(void){
-	int arr[1000], n, key=0;
-
-	cout << "Enter number of inputs: ";
-	cin >> n;
-	 
-	for (int i = 0; i < n; i++) {
-		cin >> arr[i];
+// Derived class
+class Square : public Shape
+{
+public:
+	Square(int l = 0, int w = 0)
+		: Shape(l, w)
+	{
+	} // declaring and initializing derived class
+	// constructor
+	int get_Area()
+	{
+		cout << "Square area: " << length * width << endl;
+		return (length * width);
 	}
-
-	cout << "Enter a value to search: ";
-	cin >> key;
-
-	int result = binarySearch(arr, 0, n - 1, key);
-
-
-	if (result == -1) {
-		cout << "Element is not present in array";
+};
+// Derived class
+class Rectangle : public Shape
+{
+public:
+	Rectangle(int l = 0, int w = 0)
+		: Shape(l, w)
+	{
+	} // declaring and initializing derived class
+	// constructor
+	int get_Area()
+	{
+		cout << "Rectangle area: " << length * width
+			<< endl;
+		return (length * width);
 	}
-	else {
-		cout << "Element is present at index " << result;
-	}
+};
+
+int main(void)
+{
+	Shape* s;
+	Square sq(5, 5); // making object of child class Square
+	Rectangle rec(
+		4, 5); // making object of child class Rectangle
+
+	s = &sq;
+	s->get_Area();
+	s = &rec;
+	s->get_Area();
+
+	return 0;
 }
