@@ -1,0 +1,9 @@
+1. Program to print 1 to 100
+2. Program to print m to n
+3. Program that takes 5 numbers and store in an array
+4. Program that takes n numbers and store in an array
+5. Function add two numbers
+6. Find the maximum
+7. Find the maximum with function
+8. Program that merge two sorted array
+9. Linear search???

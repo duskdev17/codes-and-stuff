@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1486919807 source:e:\baust\2016 fall\classes\algorithm\slide - 5\dfs\main.cpp
+	<iostream>
+	<vector>
+	<queue>
+
+1487015277 source:e:\baust\2016 fall\classes\algorithm\slide - 5\topsort\main.cpp
+	<iostream>
+	<vector>
+	<queue>
+

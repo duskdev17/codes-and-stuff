@@ -1,0 +1,81 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define mx 100
+
+int parent[mx];
+int vrank[mx];
+
+void makeSet(int n)
+{
+    for(int i=0; i<n; i++)
+    {
+        parent[i] = i;
+        vrank[i] = 0;
+    }
+}
+
+int parentFinder(int x)
+{
+    if(x != parent[x])
+        return parent[x] = parentFinder(parent[x]);
+    else
+        return x;
+}
+
+int setUnion(int x, int y)
+{
+    int px = parentFinder(x); //parent of x
+    int py = parentFinder(y);
+
+    if(px == py)
+        return 0;
+
+    if(vrank[px] > vrank[py])
+        parent[py] = px;
+    else if(vrank[px] < vrank[py])
+        parent[px] = py;
+    else
+    {
+        vrank[px]++;
+        parent[py] = px;
+    }
+
+    return 1;
+}
+
+void print(int n)
+{
+    for(int i=0; i<n; i++)
+    {
+        cout << "Vertex " << i << ": Parent " << parent[i] << ", Rank " << vrank[i];
+        cout << endl;
+    }
+}
+
+int main()
+{
+    int n, e, u, v;
+
+    cout << "How many nodes: ";
+    cin >> n;
+    cout << "How many edges: ";
+    cin >> e;
+
+    makeSet(n);
+
+    for(int i=1; i<=e; i++)
+    {
+        cout << "Edge " << i << ": ";
+        cin >> u >> v;
+        setUnion(u, v)
+        //if(setUnion(u, v) == 0)
+            //cout << "\nNot possible. Both belongs to same group.";
+    }
+
+    cout << endl;
+    print(n);
+
+    return 0;
+}

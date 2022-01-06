@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1493696451 source:d:\baust\2017 spring\classes\algorithms\code\merge sort\main.cpp
+	<iostream>
+	<climits>
+	<bits/stdc++.h>
+

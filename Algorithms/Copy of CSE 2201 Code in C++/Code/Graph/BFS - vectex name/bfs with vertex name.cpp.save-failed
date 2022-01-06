@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int index_finder(char vertex[], char value, int n)
+{
+    for(int i = 0; i < n; i++)
+        if(value == vertex[i])
+            return i;
+}
+
+int main()
+{
+    int n, e, u_i, v_i, i;
+    /* n = number of vertices
+    e = number of edges
+    u_i = index of u
+    v_i = index of v */
+
+    char u, v;
+
+    cout << "How many vetices?";
+    cin >> n;
+    char vertex_name[n];
+    cout << "Vertices name: "
+    for(i = 0; i < n; i++)
+    {
+        cout << "Vertex " << i+1 << ": ";
+        cin >>
+    }
+
+}
+
